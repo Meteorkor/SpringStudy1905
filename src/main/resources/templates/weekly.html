@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129591717-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-129591717-1');
+</script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>daily</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+<style>
+html, body {
+	height: 100%;
+	background-color: #333;
+}
+
+body {
+	color: #fff;
+	text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+	box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
+#title {
+	font-size: 3em;
+	padding: 10px;
+}
+
+div.bible_book_model {
+	border-bottom: 1px dotted rgb(193, 193, 193);
+	padding: 10px;
+}
+
+span.verse_line {
+	line-height: 120%;
+	font-size: 2.5em;
+}
+</style>
+</head>
+<body>
+
+
+    <!--/* <xmp> */-->
+    <div class="row">
+		<div id="title" class="col-5 col-sm-5 col-lg-5" th:text="${title}">주차</div>    
+		<div class="col-1 col-sm-1 col-lg-1" th:each="weeklyTitleModel : ${bibleModelList}">
+			<!-- 
+			<div th:text="${weeklyTitleModel.dayText}"></div>
+			 -->
+			<div th:text="${weeklyTitleModel.verseText}"></div>
+		</div>
+    </div>
+
+
+<!-- 
+ <div id="title" class="col-12 col-sm-12 col-lg-12" th:text="${title}">title</div>
+ 
+ <div class="bible_book_model col-12 col-sm-12 col-lg-12" th:each="bibleModel : ${bibleModelList}">
+    <div style="font-size:3em;" th:text="${bibleModel.verseText}"></div>
+    <div  style="margin-bottom: 10px;" th:each="verse : ${bibleModel.verseList}">
+        <span class="verse_line" th:text="${verse.verse} +'. '+ ${verse.content}"></span>
+    </div>
+    <br>
+ </div>
+  -->
+    
+</body>
+</html>

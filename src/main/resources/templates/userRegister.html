@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+<title>daily</title>
+<th:block th:include="common/common_header"></th:block>
+<body>
+<th:block th:include="common/topMenu"></th:block>
+	<!-- 
+	<form action="/user/save" method="post" class="form-signup form-user panel-body" id="loginForm" autocomplete="off">
+	 -->
+	 <form action="/user" method="post" class="form-signup form-user panel-body" id="loginForm" autocomplete="off">
+		<fieldset>
+			<input type="text" name="userId" class="form-control input-sm" required="" placeholder="아이디" value="" id="userId">
+			<input type="password" name="userPwd" class="form-control input-sm" placeholder="비밀번호" required="" value="" id="userPwd">
+			<input type="text" name="email" class="form-control input-sm" placeholder="이메일" required="" value="" id="email">
+			<input type="text" name="userName" class="form-control input-sm" placeholder="닉네임" required="" value="" id="userName">
+		</fieldset>
+		<button class="btn btn-primary btn-block" type="submit">회원 가입</button>
+	</form>
+
+<div style="margin:0px" class="row justify-content-between">
+		<button th:if="${prevDate}!=null" class="btn btn-link col-2">
+			<a th:href="@{'target_daily?date='+${prevDate}}"> 
+				<span class="verse_line" th:text="'어제'+${prevDate}"></span>
+			</a>
+		</button>
+		<button th:if="${nextDate}!=null" class="btn btn-link col-3">
+			<a th:href="@{'target_daily?date='+${nextDate}}"> 
+			<span class="verse_line" th:text="'내일'+${nextDate}"></span>
+			</a>
+		</button>
+</div>
+    <!--/* <xmp> */-->
+
+ <div id="title" class="col-12 col-sm-12 col-lg-12" th:text="${title}">title</div>
+ 
+ <div class="bible_book_model col-12 col-sm-12 col-lg-12" th:each="bibleModel : ${bibleModelList}">
+    <div style="font-size:3em;" th:text="${bibleModel.verseText}"></div>
+    <div  style="margin-bottom: 10px;" th:each="verse : ${bibleModel.verseList}">
+        <span class="verse_line" th:text="${verse.verse} +'. '+ ${verse.content}"></span>
+    </div>
+    <br>
+ </div>
+ 
+    
+</body>
+</html>
