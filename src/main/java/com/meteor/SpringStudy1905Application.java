@@ -4,12 +4,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.web.servlet.view.ResourceBundleViewResolver;
 
 @SpringBootApplication
 
@@ -21,7 +21,9 @@ public class SpringStudy1905Application {
 	@Bean
 	public MessageSource messageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("message/viewText");
+		
+		String messageS[] = {"message/viewText", "message/coffee/coffee"};
+		messageSource.setBasenames(messageS);
 		return messageSource;
 	}
 
@@ -39,4 +41,14 @@ public class SpringStudy1905Application {
 			executor.setMaxPoolSize(1);
 			return executor;
 		} 
+		
+//		
+//		@Bean
+//		public ResourceBundleViewResolver viewResolver() {
+//			ResourceBundleViewResolver viewResolver = new ResourceBundleViewResolver();
+//			viewResolver.setOrder(0);
+//			viewResolver.setBasename("view");
+//			return viewResolver;
+//		}
+//		
 }

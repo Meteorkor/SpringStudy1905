@@ -1,0 +1,21 @@
+<h2>BoardList</h2>
+<div class="table-responsive">
+	<table class="table table-striped table-sm">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>coffeeKind</th>
+				<th>produceTime</th>
+				<th>expireTime</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="dutch : ${dutchList}">
+				<td th:text="${dutch.id}"></td>
+				<td th:text="#{${dutch.coffeeKind}+'.name'}"></td>
+				<td th:text="${dutch.produceTime}"></td>
+				<td th:text="${dutch.expiredTime}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
