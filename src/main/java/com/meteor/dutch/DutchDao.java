@@ -17,11 +17,13 @@ import com.meteor.coffee.CoffeeEnum;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name="usys_dutch_manage")
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 public class DutchDao {
 	@Id

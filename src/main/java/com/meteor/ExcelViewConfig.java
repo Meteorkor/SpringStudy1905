@@ -27,11 +27,12 @@ public class ExcelViewConfig extends AbstractXlsView{
 		header.createCell(3).setCellValue("3");
 		
 		for(DutchDao dutchDao : dutchList) {
-			Row row = sheet.createRow(sheet.getLastRowNum()+1);
-			header.createCell(0).setCellValue( dutchDao.getId() );
-			header.createCell(1).setCellValue(dutchDao.getCoffeeKind().name());
-			header.createCell(2).setCellValue(dutchDao.getProduceTime());
-			header.createCell(3).setCellValue(dutchDao.getExpiredTime());
+			int rowNum = sheet.getLastRowNum()+1;
+			Row row = sheet.createRow(rowNum);
+			row.createCell(0).setCellValue( dutchDao.getId() );
+			row.createCell(1).setCellValue(dutchDao.getCoffeeKind().name());
+			row.createCell(2).setCellValue(dutchDao.getProduceTime());
+			row.createCell(3).setCellValue(dutchDao.getExpiredTime());
 			
 		}
 		

@@ -9,6 +9,8 @@ import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.ResourceBundleViewResolver;
 
 @SpringBootApplication
@@ -41,6 +43,11 @@ public class SpringStudy1905Application {
 			executor.setMaxPoolSize(1);
 			return executor;
 		} 
+		@Bean
+		public ViewResolver beanNameViewResolver() {
+			BeanNameViewResolver resolver = new BeanNameViewResolver();
+			return resolver;
+		}
 		
 //		
 //		@Bean
