@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.document.AbstractXlsView;
 
 import com.meteor.dutch.DutchDao;
 
-public class ExcelViewConfig extends AbstractXlsView{
+public class DutchDaoExcelView extends AbstractXlsView{
 
 	@Override
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,

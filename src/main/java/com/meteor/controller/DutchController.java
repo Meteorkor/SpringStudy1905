@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.meteor.ExcelViewConfig;
+import com.meteor.DutchDaoExcelView;
 import com.meteor.dutch.DutchDao;
 import com.meteor.dutch.DutchService;
 
@@ -55,7 +55,7 @@ public class DutchController {
 	public ModelAndView dutchXls(ModelAndView modelAndView, HttpServletRequest req) {
 		List<DutchDao> list = dutchService.getDutchList();
 		modelAndView.addObject(  "dutchList", list);
-		modelAndView.setView(new ExcelViewConfig());
+		modelAndView.setView(new DutchDaoExcelView());
 		return modelAndView;
 		
 		                                                                 
