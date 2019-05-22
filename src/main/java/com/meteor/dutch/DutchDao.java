@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.meteor.coffee.CoffeeEnum;
 
@@ -25,10 +28,12 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DutchDao {
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
 	@Enumerated(EnumType.STRING)
 	private CoffeeEnum coffeeKind;
